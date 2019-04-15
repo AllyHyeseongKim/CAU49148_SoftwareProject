@@ -13,7 +13,6 @@ public class FriendListFile {
 		if (inputFile != null) {
 			while (inputFile.hasNext()) {
 				String aLineOfFriendListFile = inputFile.nextLine();
-//				System.out.println(aLineOfFriendListFile);
 				Friend parsedFriendInformation = parserOfFriendListFile(aLineOfFriendListFile);
 				if (parsedFriendInformation != null) {
 					try {
@@ -56,7 +55,6 @@ public class FriendListFile {
 			parsedFriendInformation = new Friend();
 			String[] splitedFriendInformationByCategory = aLineRemovedspaceCharacters.split(":");
 			if (isRightInputInformation(splitedFriendInformationByCategory)) {
-				// isRightInputInformation 이
 				parsedFriendInformation.setGroupOfContact(Integer.parseInt(splitedFriendInformationByCategory[1]));
 				parsedFriendInformation.setNameOfContact(splitedFriendInformationByCategory[0]);
 				parsedFriendInformation.setPhoneNumberOfContact(splitedFriendInformationByCategory[2]);
@@ -94,7 +92,6 @@ public class FriendListFile {
 			System.out.println("At least one category is omitted.");
 			return false;
 		}
-		// isWrongFormat 이
 		else if(isWrongFormat(splitedFriendInformationByCategory)) {
 			return false;
 		}
@@ -102,7 +99,6 @@ public class FriendListFile {
 	}
 	
 	private boolean isWrongFormat(String[] splitedFriendInformationByCategory) {
-		// 조건문 함수 이상 (Name,Group 괜찮음// phonenumber가 못 들어간다 )
 		if(friendList.isConflictedName(splitedFriendInformationByCategory[0]) 
 			|| !isIntegerGroup(splitedFriendInformationByCategory[1]) 
 			|| isPhoneNumber(splitedFriendInformationByCategory[2])
