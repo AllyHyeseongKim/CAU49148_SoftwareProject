@@ -41,8 +41,9 @@ public class FriendList {
 	}
 	
 	public boolean isConflictedName(String nameOfContact) {
-		for (Friend friendInformation: contactInformation) {
-			if (friendInformation != null && friendInformation.getNameOfContact().equals(nameOfContact)) {
+		for (int i = 0; i < numberOfContactLists; i++) {
+			if (contactInformation[i].getNameOfContact() != null 
+					|| contactInformation[i].getNameOfContact().equals(nameOfContact)) {
 				System.out.println("The name of the contact is conflicted.");
 				return true;
 				}
@@ -50,5 +51,3 @@ public class FriendList {
 		return false;
 	}
 }
-
-
