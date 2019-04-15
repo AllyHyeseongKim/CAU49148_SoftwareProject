@@ -59,7 +59,15 @@ public class FriendListFile {
 				parsedFriendInformation.setNameOfContact(splitedFriendInformationByCategory[0]);
 				parsedFriendInformation.setPhoneNumberOfContact(splitedFriendInformationByCategory[2]);
 				parsedFriendInformation.setEmailAddressOfContact(splitedFriendInformationByCategory[3]);
-				parsedFriendInformation.setPictureOfContact(splitedFriendInformationByCategory[4]);
+				if(splitedFriendInformationByCategory.length == 5) {
+					parsedFriendInformation.setPictureOfContact(splitedFriendInformationByCategory[4]);
+				}
+				else {
+					if (aLineRemovedspaceCharacters.substring
+							(aLineRemovedspaceCharacters.length() - 1, aLineRemovedspaceCharacters.length()) != ":") {
+						System.out.println("The format of the input is wrong.");
+					}
+				}
 			}
 			return parsedFriendInformation;
 		}
@@ -121,7 +129,8 @@ public class FriendListFile {
 	}
 	
 	private boolean isPhoneNumber(String phoneNumberOfContact) {
-		if (Pattern.matches("^01(?:0|1|[6-9]) - (?:\\d{3}|\\d{4}) - \\d{4}$", phoneNumberOfContact.trim())) {
+		if (Pattern.matches("(\\\\d{3})-(\\\\d{3,4})-(\\\\d{4})", phoneNumberOfContact.trim())) {
+			System.out.println("1");
 			return true;
 		}
 		else {
@@ -134,7 +143,8 @@ public class FriendListFile {
 			System.out.println("Picture category is empty.");
 			return true;
 		}
-		else if (Pattern.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+$", emailAddressOfContact.trim())) {
+		else if (Pattern.matches("[\\\\w\\\\~\\\\-\\\\.]+@[\\\\w\\\\~\\\\-]+(\\\\.[\\\\w\\\\~\\\\-]+)+", emailAddressOfContact.trim())) {
+			System.out.println("2");
 			return true;
 		}
 		else {
@@ -142,4 +152,3 @@ public class FriendListFile {
 		}
 	}
 }
-
