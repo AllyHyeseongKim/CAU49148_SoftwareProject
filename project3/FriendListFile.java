@@ -53,9 +53,9 @@ public class FriendListFile {
 		String aLineRemovedspaceCharacters = originalLine.replace(" ", "");
 		// start to parse the line if it is not an empty or a comment line
 		if (!isCommentLine(aLineRemovedspaceCharacters) && !isEmptyLine(aLineRemovedspaceCharacters)) {
-			parsedFriendInformation = new Friend();
 			String[] splitedFriendInformationByCategory = aLineRemovedspaceCharacters.split(":");
 			if (isRightInputInformation(splitedFriendInformationByCategory)) {
+				parsedFriendInformation = new Friend();
 				parsedFriendInformation.setGroupOfContact(Integer.parseInt(splitedFriendInformationByCategory[1]));
 				parsedFriendInformation.setNameOfContact(splitedFriendInformationByCategory[0]);
 				parsedFriendInformation.setPhoneNumberOfContact(splitedFriendInformationByCategory[2]);
