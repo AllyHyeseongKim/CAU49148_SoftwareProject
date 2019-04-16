@@ -1,8 +1,6 @@
-public class Friend {
+package project3;
 
-	// make a constructor
-	Friend() {
-	}
+public class Friend {
 	
 	// private variables of informations of a contact
 	private String nameOfContact;
@@ -52,4 +50,3 @@ public class Friend {
 		System.out.println(this.formOfInformation());
 	}
 }
-

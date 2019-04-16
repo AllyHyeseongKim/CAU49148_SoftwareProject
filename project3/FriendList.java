@@ -1,8 +1,6 @@
+package project3;
+
 public class FriendList {
-	
-	// make a constructor
-	FriendList() {
-	}
 	
 	private int maxOfContactLists = 100;
 	private int numberOfContactLists = 0;
@@ -22,10 +20,15 @@ public class FriendList {
 			return null;
 		}
 	}
+
+	public void printContactInformation() {
+		for (int i = 0; i < numberOfContactLists; i++) {
+			contactInformation[i].print();
+		}
+	}
 	
 	public void addFriendInformation(Friend parsedFriendInformation) {
-		contactInformation[numberOfContactLists] = parsedFriendInformation;
-		numberOfContactLists++;
+		contactInformation[numberOfContactLists++] = parsedFriendInformation;
 	}
 	
 	private boolean isRightIndexNumber(int index) {
@@ -39,8 +42,7 @@ public class FriendList {
 	
 	public boolean isConflictedName(String nameOfContact) {
 		for (int i = 0; i < numberOfContactLists; i++) {
-			if (contactInformation[i].getNameOfContact() != null 
-					&& contactInformation[i].getNameOfContact().equals(nameOfContact)) {
+			if (nameOfContact.equals(contactInformation[i].getNameOfContact())) {
 				System.out.println("The name of the contact is conflicted.");
 				return true;
 				}

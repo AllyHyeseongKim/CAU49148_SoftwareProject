@@ -1,3 +1,5 @@
+package project3;
+
 import java.io.File;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -102,8 +104,8 @@ public class FriendListFile {
 	private boolean isWrongFormat(String[] splitedFriendInformationByCategory) {
 		if (friendList.isConflictedName(splitedFriendInformationByCategory[0])
 				|| !isIntegerGroup(splitedFriendInformationByCategory[1])
-				|| isPhoneNumber(splitedFriendInformationByCategory[2])
-				|| isEmailAddress(splitedFriendInformationByCategory[3])) {
+				|| !isPhoneNumber(splitedFriendInformationByCategory[2])
+				|| !isEmailAddress(splitedFriendInformationByCategory[3])) {
 			return true;
 		} else {
 			return false;
@@ -121,9 +123,10 @@ public class FriendListFile {
 	}
 
 	private boolean isPhoneNumber(String phoneNumberOfContact) {
-		if (Pattern.matches("(\\\\d{3})-(\\\\d{3,4})-(\\\\d{4})", phoneNumberOfContact.trim())) {
+		if (Pattern.matches("^[0-9]{3}+\\-[0-9]{3,4}+\\-[0-9]{3,4}$", phoneNumberOfContact.trim())) {
 			return true;
 		} else {
+			System.out.println("The format of the input of the phoneNumber is wrong.");
 			return false;
 		}
 	}
