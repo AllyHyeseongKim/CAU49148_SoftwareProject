@@ -1,0 +1,10 @@
+// Friend List
+// Format::  Name : Group Number : Phone : email : profile picture
+// Group Number Family:1 , School:2 , Job 3 
+Fred: 1:010-1111-1111: fred@google.com :fred.gif
+//
+Tom:2: 010-222-2222: tom@naver.com : tom.jpeg
+//
+Peter: 2 : 010-3333-333 : peter@daum.net : peter.jpg
+//
+Ally:2: 010-222-222222: ally#naver.com: ally.jpg
