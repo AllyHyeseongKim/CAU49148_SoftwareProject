@@ -1,10 +1,7 @@
 public class FriendList {
 	
 	// make a constructor
-	private FriendList() {
-	}
-	public static FriendList constructInstance() {
-		return new FriendList();
+	FriendList() {
 	}
 	
 	private int maxOfContactLists = 100;
