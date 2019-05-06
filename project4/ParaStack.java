@@ -2,7 +2,7 @@ public class ParaStack<E> {
 	int size = 4;
 	E[] list = (E[]) new Object[4];
 	
-	public int top = -1;
+	protected int top = -1;
 	
 	public void push(E element) {
 		if (top != size - 1) {
