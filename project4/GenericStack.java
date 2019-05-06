@@ -1,6 +1,6 @@
 public class GenericStack {
 
-	String[] list = (String[]) new Object[4];
+	Object[] list = (Object[]) new Object[4];
 	
 	private int top = -1;
 	
