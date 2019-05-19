@@ -41,7 +41,7 @@ public class FriendListFrame extends JFrame {
 		this.setSize(1180, 410);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("친구 목록");
-		this.addFriendListFramebuttons();
+		this.addFriendListFrameButtons();
 		this.addFriendListFrameLabels();
 		this.addFriendListInformations();
 		this.setVisible(true);
@@ -59,7 +59,7 @@ public class FriendListFrame extends JFrame {
 
 	}
 
-	private void addFriendListFramebuttons() {
+	private void addFriendListFrameButtons() {
 
 		menuPanel.setLayout(new FlowLayout());
 		menuPanel.setPreferredSize(new Dimension(60, 240));
