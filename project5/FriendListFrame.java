@@ -105,8 +105,8 @@ public class FriendListFrame extends JFrame {
 		this.add(labelPanel, BorderLayout.NORTH);
 
 	}
-
-/*	public void addFriendListFrameCheckBoxMargin() {
+/*
+	public void addFriendListFrameCheckBoxMargin() {
 
 		checkBoxPanel.setLayout(new FlowLayout());
 		checkBoxPanel.setPreferredSize(new Dimension(60, 15));

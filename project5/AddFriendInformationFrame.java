@@ -59,7 +59,7 @@ private ActionListener actionListener = new ActionListener() {
 		picture.setPreferredSize(new Dimension(185, 20));
 		picture.setHorizontalAlignment(JTextField.CENTER);
 		
-		this.add(inputTextFieldsPanel, BorderLayout.WEST);
+		this.add(inputTextFieldsPanel, BorderLayout.CENTER);
 		
 	}
 	
