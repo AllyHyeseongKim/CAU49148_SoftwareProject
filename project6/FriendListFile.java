@@ -7,9 +7,13 @@ import java.util.regex.Pattern;
 public class FriendListFile {
 
 	private FriendList friendList = new FriendList();
-
+	
+	private String fileName;
+	
 	public FriendList readFileToList(String fileName) {
 
+		this.fileName = fileName;
+		
 		Scanner inputFile = scanFile(fileName);
 
 		if (inputFile != null) {
@@ -145,11 +149,15 @@ public class FriendListFile {
 			return false;
 		}
 	}
-
-	public void printWriterOfNewFriendInformation(String newFriendInformation) throws IOException {
-		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("friendlist-norm,data", true));
-		PrintWriter printWriter = new PrintWriter(bufferedWriter, true);
-		
-		printWriter.write(newFriendInformation + "\n");
+	
+	public void saveNewFriendListFile(FriendList friendList) throws IOException {
+//		System.out.println(friendList.getFriend(0).formOfInformation());
+			FileWriter fileWriter = new FileWriter(fileName);
+//			System.out.println(friendList.getFriend(0).formOfInformation());
+			for (int i = 0; i < friendList.numFriends(); i++) {
+				fileWriter.write(friendList.getFriend(i).formOfInformation() + "\n");
+//				System.out.println(friendList.getFriend(i).formOfInformation());
+			}
+			fileWriter.close();
 	}
 }

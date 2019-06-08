@@ -16,6 +16,19 @@ public class FriendListInformationPanel extends JPanel {
 	private JTextField emailAddress = new JTextField();
 	private JLabel picture = new JLabel();
 	private JCheckBox checkBox = new JCheckBox();
+	
+	public JTextField getgroup() {
+		return group;
+	}
+	public JTextField getphoneNumber() {
+		return phoneNumber;
+	}
+	public JTextField getemailAddress() {
+		return emailAddress;
+	}
+	public JCheckBox getCheckBox() {
+		return checkBox;
+	}
 
 	private JPanel checkBoxPanel = new JPanel();
 	private JPanel informationPanel = new JPanel();
@@ -27,6 +40,7 @@ public class FriendListInformationPanel extends JPanel {
 		informationPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 95, 5));
 
 		checkBoxPanel.add(checkBox);
+		
 
 		name.setText(friend.getName());
 		informationPanel.add(name);

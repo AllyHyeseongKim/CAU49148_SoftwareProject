@@ -22,6 +22,16 @@ public class FriendList {
 			return null;
 		}
 	}
+	
+	public void removeFriend(int index) {
+		contactInformation.remove(index);
+	}
+	
+	public void modifyFriendInformation(int index, int modifiedGroup, String modifiedPhoneNumber, String modifiedEmailAddress) {
+		contactInformation.get(index).setGroup(modifiedGroup);
+		contactInformation.get(index).setPhoneNumber(modifiedPhoneNumber);
+		contactInformation.get(index).setEmailAddress(modifiedEmailAddress);
+	}
 
 	public void printContactInformation() {
 		for (int i = 0; i < numberOfContactLists; i++) {

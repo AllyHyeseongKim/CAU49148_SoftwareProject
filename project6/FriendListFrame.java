@@ -2,13 +2,17 @@ package project6;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
 
 public class FriendListFrame extends JFrame {
 
-	private FriendList friendList;
+	FriendList friendList;
+	FriendListFile friendListFile;
 
+	private ArrayList<FriendListInformationPanel> friendListInformationPanelList = new ArrayList<FriendListInformationPanel>();
+	
 	private JPanel menuPanel = new JPanel();
 	private JPanel labelPanel = new JPanel();
 	private JPanel checkBoxPanel = new JPanel();
@@ -52,7 +56,8 @@ public class FriendListFrame extends JFrame {
 	private void addFriendListInformations() {
 		for (int i = 0; i < friendList.numFriends(); i++) {
 			Friend friendInformation = friendList.getFriend(i);
-			friendListInformationPanel.add(new FriendListInformationPanel(friendInformation));
+			friendListInformationPanelList.add(new FriendListInformationPanel(friendInformation));
+			friendListInformationPanel.add(friendListInformationPanelList.get(i));
 		}
 
 		this.add(friendListInformationPanel,BorderLayout.CENTER);
@@ -109,6 +114,40 @@ public class FriendListFrame extends JFrame {
 		this.add(labelPanel, BorderLayout.NORTH);
 
 	}
+	
+	private int checkedFriendInformation() {
+		for(int i = 0; i < friendListInformationPanelList.size(); i ++) {
+			if (friendListInformationPanelList.get(i).getCheckBox().isSelected())
+				return i;
+		}
+		return -1;
+	}
+	
+	protected void deleteButtonAction() {
+		
+		if (checkedFriendInformation() != -1)
+			friendList.removeFriend(checkedFriendInformation());
+		this.dispose();
+		this.updateFriendListFrame(this);
+	}
+	
+	protected void modifyButtonAction() {	
+		
+		if (checkedFriendInformation() != -1) {
+			friendList.removeFriend(checkedFriendInformation());
+			friendList.modifyFriendInformation(checkedFriendInformation(), 
+					Integer.getInteger(friendListInformationPanelList.get(checkedFriendInformation()).getgroup().getText()),
+					friendListInformationPanelList.get(checkedFriendInformation()).getphoneNumber().getText(),
+					friendListInformationPanelList.get(checkedFriendInformation()).getemailAddress().getText());
+		}
+		this.dispose();
+		this.updateFriendListFrame(this);
+	}
+	
+	protected void saveButtonAction() throws IOException {	
+		
+		friendListFile.saveNewFriendListFile(this.friendList);
+	}
 }
 
 class ButtonsActionListener implements ActionListener {
@@ -124,26 +163,14 @@ class ButtonsActionListener implements ActionListener {
 		if (e.getSource().equals(mainViewFrame.getAddButton()))
 			new AddFriendInformationFrame(mainViewFrame);
 		else if (e.getSource().equals(mainViewFrame.getDeleteButton()))
-			deleteButtonAction();
+			mainViewFrame.deleteButtonAction();
 		else if (e.getSource().equals(mainViewFrame.getModifyButton()))
-			modifyButtonAction();
+			mainViewFrame.modifyButtonAction();
 		else if (e.getSource().equals(mainViewFrame.getSaveButton()))
-			saveButtonAction();
-	}
-	
-	private void deleteButtonAction() {
-		
-		mainViewFrame.dispose();
-		mainViewFrame.updateFriendListFrame(mainViewFrame);
-	}
-	
-	private void modifyButtonAction() {	
-		
-		mainViewFrame.dispose();
-		mainViewFrame.updateFriendListFrame(mainViewFrame);
-	}
-	
-	private void saveButtonAction() {	
-		
+			try {
+				mainViewFrame.saveButtonAction();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 	}
 }
