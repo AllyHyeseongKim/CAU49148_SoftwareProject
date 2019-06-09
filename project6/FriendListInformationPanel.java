@@ -17,13 +17,13 @@ public class FriendListInformationPanel extends JPanel {
 	private JLabel picture = new JLabel();
 	private JCheckBox checkBox = new JCheckBox();
 	
-	public JTextField getgroup() {
+	public JTextField getGroup() {
 		return group;
 	}
-	public JTextField getphoneNumber() {
+	public JTextField getPhoneNumber() {
 		return phoneNumber;
 	}
-	public JTextField getemailAddress() {
+	public JTextField getEmailAddress() {
 		return emailAddress;
 	}
 	public JCheckBox getCheckBox() {

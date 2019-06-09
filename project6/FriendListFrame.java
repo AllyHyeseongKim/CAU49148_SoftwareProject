@@ -140,9 +140,9 @@ public class FriendListFrame extends JFrame {
 		
 		if (checkedFriendInformation() != -1) {
 			friendList.modifyFriendInformation(checkedFriendInformation(), 
-					Integer.parseInt(friendListInformationPanelList.get(checkedFriendInformation()).getgroup().getText()),
-					friendListInformationPanelList.get(checkedFriendInformation()).getphoneNumber().getText(),
-					friendListInformationPanelList.get(checkedFriendInformation()).getemailAddress().getText());
+					Integer.parseInt(friendListInformationPanelList.get(checkedFriendInformation()).getGroup().getText()),
+					friendListInformationPanelList.get(checkedFriendInformation()).getPhoneNumber().getText(),
+					friendListInformationPanelList.get(checkedFriendInformation()).getEmailAddress().getText());
 			this.dispose();
 			this.updateFriendListFrame(this);
 		}
