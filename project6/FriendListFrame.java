@@ -9,7 +9,7 @@ import javax.swing.*;
 public class FriendListFrame extends JFrame {
 
 	FriendList friendList;
-	FriendListFile friendListFile;
+	FriendListFile friendListFile = new FriendListFile();
 
 	private ArrayList<FriendListInformationPanel> friendListInformationPanelList = new ArrayList<FriendListInformationPanel>();
 	
@@ -39,6 +39,7 @@ public class FriendListFrame extends JFrame {
 	public FriendListFrame(FriendList friendList) {
 		
 		this.friendList = friendList;
+		
 		this.setLayout(new BorderLayout());
 		this.setSize(1180, 410);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +55,7 @@ public class FriendListFrame extends JFrame {
 	}
 	
 	private void addFriendListInformations() {
+		
 		for (int i = 0; i < friendList.numFriends(); i++) {
 			Friend friendInformation = friendList.getFriend(i);
 			friendListInformationPanelList.add(new FriendListInformationPanel(friendInformation));
@@ -116,6 +118,7 @@ public class FriendListFrame extends JFrame {
 	}
 	
 	private int checkedFriendInformation() {
+		
 		for(int i = 0; i < friendListInformationPanelList.size(); i ++) {
 			if (friendListInformationPanelList.get(i).getCheckBox().isSelected())
 				return i;
@@ -145,6 +148,7 @@ public class FriendListFrame extends JFrame {
 	}
 	
 	protected void saveButtonAction() throws IOException {	
+		
 		friendListFile.saveNewFriendListFile(this.friendList);
 	}
 }

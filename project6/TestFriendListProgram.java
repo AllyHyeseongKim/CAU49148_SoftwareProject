@@ -7,7 +7,7 @@ public class TestFriendListProgram {
 		FriendListFile friendListFile  = new FriendListFile();
         FriendList friendList = friendListFile.readFileToList("friendlist-norm.data");
         
-        friendList.printContactInformation();
+//        friendList.printContactInformation();
 		
 		new FriendListFrame(friendList);
 	}
