@@ -120,18 +120,21 @@ public class FriendListFrame extends JFrame {
 	private int checkedFriendInformation() {
 		
 		for(int i = 0; i < friendListInformationPanelList.size(); i ++) {
-			if (friendListInformationPanelList.get(i).getCheckBox().isSelected())
+			if (friendListInformationPanelList.get(i).getCheckBox().isSelected()) {
+				System.out.println(i);
 				return i;
+			}
 		}
 		return -1;
 	}
 	
 	protected void deleteButtonAction() {
 		
-		if (checkedFriendInformation() != -1)
+		if (checkedFriendInformation() != -1) {
 			friendList.removeFriend(checkedFriendInformation());
-		this.dispose();
-		this.updateFriendListFrame(this);
+			this.dispose();
+			this.updateFriendListFrame(this);
+		}
 	}
 	
 	protected void modifyButtonAction() {	
@@ -142,9 +145,9 @@ public class FriendListFrame extends JFrame {
 					Integer.getInteger(friendListInformationPanelList.get(checkedFriendInformation()).getgroup().getText()),
 					friendListInformationPanelList.get(checkedFriendInformation()).getphoneNumber().getText(),
 					friendListInformationPanelList.get(checkedFriendInformation()).getemailAddress().getText());
+			this.dispose();
+			this.updateFriendListFrame(this);
 		}
-		this.dispose();
-		this.updateFriendListFrame(this);
 	}
 	
 	protected void saveButtonAction() throws IOException {	
