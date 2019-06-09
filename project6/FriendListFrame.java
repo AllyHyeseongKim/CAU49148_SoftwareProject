@@ -121,7 +121,6 @@ public class FriendListFrame extends JFrame {
 		
 		for(int i = 0; i < friendListInformationPanelList.size(); i ++) {
 			if (friendListInformationPanelList.get(i).getCheckBox().isSelected()) {
-				System.out.println(i);
 				return i;
 			}
 		}
@@ -140,9 +139,8 @@ public class FriendListFrame extends JFrame {
 	protected void modifyButtonAction() {	
 		
 		if (checkedFriendInformation() != -1) {
-			friendList.removeFriend(checkedFriendInformation());
 			friendList.modifyFriendInformation(checkedFriendInformation(), 
-					Integer.getInteger(friendListInformationPanelList.get(checkedFriendInformation()).getgroup().getText()),
+					Integer.parseInt(friendListInformationPanelList.get(checkedFriendInformation()).getgroup().getText()),
 					friendListInformationPanelList.get(checkedFriendInformation()).getphoneNumber().getText(),
 					friendListInformationPanelList.get(checkedFriendInformation()).getemailAddress().getText());
 			this.dispose();

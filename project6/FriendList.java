@@ -22,7 +22,11 @@ public class FriendList {
 	}
 	
 	public void removeFriend(int index) {
-		contactInformation.remove(index);
+		try {
+			contactInformation.remove(index);
+			numberOfContactLists--;
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
 	}
 	
 	public void modifyFriendInformation(int index, int modifiedGroup, String modifiedPhoneNumber, String modifiedEmailAddress) {
