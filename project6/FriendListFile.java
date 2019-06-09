@@ -8,11 +8,11 @@ public class FriendListFile {
 
 	private FriendList friendList = new FriendList();
 	
-	private String fileName;
+	public static String fileName;
 	
 	public FriendList readFileToList(String fileName) {
 
-		this.fileName = fileName;
+		FriendListFile.fileName = fileName;
 		
 		Scanner inputFile = scanFile(fileName);
 
@@ -151,9 +151,9 @@ public class FriendListFile {
 	}
 	
 	public void saveNewFriendListFile(FriendList friendList) throws IOException {
-//		System.out.println(friendList.getFriend(0).formOfInformation());
-			FileWriter fileWriter = new FileWriter(fileName);
 //			System.out.println(friendList.getFriend(0).formOfInformation());
+			FileWriter fileWriter = new FileWriter(fileName);
+			System.out.println(fileWriter);
 			for (int i = 0; i < friendList.numFriends(); i++) {
 				fileWriter.write(friendList.getFriend(i).formOfInformation() + "\n");
 //				System.out.println(friendList.getFriend(i).formOfInformation());

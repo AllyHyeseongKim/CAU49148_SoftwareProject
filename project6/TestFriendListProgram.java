@@ -9,7 +9,7 @@ public class TestFriendListProgram {
         
         friendList.printContactInformation();
 		
-		FriendListFrame friendListFrame = new FriendListFrame(friendList);
+		new FriendListFrame(friendList);
 	}
 
 }

@@ -145,7 +145,6 @@ public class FriendListFrame extends JFrame {
 	}
 	
 	protected void saveButtonAction() throws IOException {	
-		
 		friendListFile.saveNewFriendListFile(this.friendList);
 	}
 }

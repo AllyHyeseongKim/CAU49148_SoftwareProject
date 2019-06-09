@@ -9,12 +9,10 @@ public class FriendList {
 	private ArrayList<Friend> contactInformation = new ArrayList<Friend>();
 	
 	public int numFriends() {
-		
 		return numberOfContactLists;
 	}
 	
 	public Friend getFriend(int i) {
-		
 		if (isRightIndexNumber(i)) {
 			return contactInformation.get(i);
 		}
